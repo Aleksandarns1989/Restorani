@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { PaginationComponent } from './restaurants/pagination/pagination.component';
 import { RatingComponent } from './restaurants/restaurant-item/rating/rating.component';
 import { MenuComponent } from './core/menu/menu.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { MenuComponent } from './core/menu/menu.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    NgbModule,
     
   ],
   providers: [],

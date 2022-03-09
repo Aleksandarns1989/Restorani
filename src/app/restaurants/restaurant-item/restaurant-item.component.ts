@@ -1,4 +1,6 @@
 import { Component, Input, NgModule, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { MenuComponent } from 'src/app/core/menu/menu.component';
 import { Restaurant } from 'src/app/model/restaurant.model';
 
 @Component({
@@ -8,7 +10,7 @@ import { Restaurant } from 'src/app/model/restaurant.model';
 })
 export class RestaurantItemComponent implements OnInit {
 @Input() restaurant: Restaurant = new Restaurant();
-  constructor() { }
+  constructor(private modalService: NgbModal) { }
 
   ngOnInit(): void {
 
@@ -16,7 +18,10 @@ export class RestaurantItemComponent implements OnInit {
   }
 
   openMenu(){
-
+    
+      const modalRef = this.modalService.open(MenuComponent);
+      modalRef.componentInstance.restaurant = this.restaurant;
+    
   }
 
 }

@@ -1,1 +1,49 @@
-<p>menu works!</p>
+<div>
+    <div class="modal-header">
+        <h2 class="modal-title">{{restaurant.name}}</h2>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-6">
+                <b>Radno vreme</b>
+                <ul>
+                    <li *ngIf="restaurant.days['1'].opens">Ponedeljak: {{restaurant.days['1'].opens}}h - {{restaurant.days['1'].closes}}h</li>
+
+                    <li *ngIf="restaurant.days['2'].opens">Utorak: {{restaurant.days['2'].opens}}h - {{restaurant.days['2'].closes}}h</li>
+
+                    <li *ngIf="restaurant.days['3'].opens">Sreda: {{restaurant.days['3'].opens}}h - {{restaurant.days['3'].closes}}h</li>
+                    <li *ngIf="restaurant.days['4'].opens">Cetvrtak: {{restaurant.days['4'].opens}}h - {{restaurant.days['4'].closes}}h</li>
+                    <li *ngIf="restaurant.days['5'].opens">Petak: {{restaurant.days['5'].opens}}h - {{restaurant.days['5'].closes}}h</li>
+                    <li *ngIf="restaurant.days['6'].opens">Subota: {{restaurant.days['6'].opens}}h - {{restaurant.days['6'].closes}}h</li>
+                    <li *ngIf="restaurant.days['7'].opens">Nedelja: {{restaurant.days['7'].opens}}h - {{restaurant.days['7'].closes}}h</li>
+                </ul>
+            </div>
+
+            <div class="col-6">
+                <b>Adresa</b>
+                <ul>
+                    <li>{{restaurant.location}}</li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="row">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col" class="text-right">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of menu.results.items">
+                        <td>{{item.name}}</td>
+                    <td class="text-right">{{item.price}}$</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
