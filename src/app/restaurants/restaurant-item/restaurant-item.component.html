@@ -1,0 +1,18 @@
+<h4 >{{restaurant.name}}</h4>
+<div class="row">
+    <div class="col">
+        {{restaurant.description}}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+      Rejting: <app-rating [grade]="restaurant.rating" [fullIcon]="'star-full.png'" [emptyIcon]="'star-empty.png'"></app-rating>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        Cena: <app-rating [grade]="restaurant.price" [fullIcon]="'coin-full.png'" [emptyIcon]="'coin-empty.png'"></app-rating>
+    </div>
+</div>

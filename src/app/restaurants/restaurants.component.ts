@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { RestaurantList } from '../model/restaurant-list.model';
 import { RestaurantService } from '../services/restaurant.service';
 
@@ -9,14 +10,43 @@ import { RestaurantService } from '../services/restaurant.service';
 })
 export class RestaurantsComponent implements OnInit {
 
-  constructor(private service : RestaurantService) {
+  restaurants: RestaurantList = new RestaurantList();
+
+  params = {
+    page: 1,
+    pageSize: 10,
+    sort: '',
+    sortDirection: '',
+    filter: {
+      cuisine: '',
+      priceFrom: 1,
+      priceTo:5
+    }
+  }
+ 
+  constructor(private service: RestaurantService, private route: ActivatedRoute) {
 
    }
 
   ngOnInit(): void {
-    this.service.getAll().subscribe((restaurants:RestaurantList)=>{
-      console.log(restaurants)
+    this.route.params.subscribe((params:any) => {
+      let cuisine = params['cuisine'];
+      if(cuisine == 'All') cuisine = ''
+      this.params.filter.cuisine = cuisine;
+      this.getRestaurants();
     })
+   
+  }
+
+  getRestaurants(){
+    this.service.getAll(this.params).subscribe((restaurants:RestaurantList) => {
+      this.restaurants = restaurants;
+    })
+  }
+
+  onPageChanged(newPage:number){
+    this.params.page = newPage;
+    this.getRestaurants();
   }
 
 }

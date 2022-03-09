@@ -7,7 +7,7 @@ export class Restaurant {
          price:number;
          rating:number;
 
-         constructor(obj:any){
+         constructor(obj?:any){
              this.name= obj && obj.name || "";
              this.cuisine = obj && obj.cuisine || "";
              this._id = obj && obj._id || 0;

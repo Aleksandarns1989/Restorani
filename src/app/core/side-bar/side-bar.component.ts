@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./side-bar.component.css']
 })
 export class SideBarComponent implements OnInit {
-
+  cuisines = ['All', 'German', 'Chinese', 'American', 'Indian', 'Pizza', 'Vegetarian']
   constructor() { }
 
   ngOnInit(): void {

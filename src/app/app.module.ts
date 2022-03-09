@@ -8,6 +8,11 @@ import { HomeComponent } from './core/home/home.component';
 import { AboutComponent } from './core/about/about.component';
 import { RestaurantsComponent } from './restaurants/restaurants.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RestaurantItemComponent } from './restaurants/restaurant-item/restaurant-item.component';
+import { FormsModule } from '@angular/forms';
+import { PaginationComponent } from './restaurants/pagination/pagination.component';
+import { RatingComponent } from './restaurants/restaurant-item/rating/rating.component';
+import { MenuComponent } from './core/menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -15,12 +20,18 @@ import { HttpClientModule } from '@angular/common/http';
     SideBarComponent,
     HomeComponent,
     AboutComponent,
-    RestaurantsComponent
+    RestaurantsComponent,
+    RestaurantItemComponent,
+    PaginationComponent,
+    RatingComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
